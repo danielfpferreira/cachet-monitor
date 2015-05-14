@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-const timeout = time.Duration(time.Second)
+const timeout = time.Duration(30 * time.Second)
 
 // Monitor data model
 type Monitor struct {
@@ -49,7 +49,7 @@ func (monitor *Monitor) doRequest() bool {
 		return false
 	}
 
-	defer resp.Body.Close()
+//	defer resp.Body.Close()
 
 	return resp.StatusCode == monitor.ExpectedStatusCode
 }
